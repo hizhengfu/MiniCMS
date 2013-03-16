@@ -1,20 +1,23 @@
 <?php
-require_once dirname(dirname(__FILE__)).'/mc-files/mc-conf.php';
+require_once '../conf-inc.php';
+require_once __COMMON_PATH__ . '/mc-conf.php';
+
 
 if (isset($_COOKIE['mc_token'])) {
-  $token = $_COOKIE['mc_token'];
+    $token = $_COOKIE['mc_token'];
 
-  if ($token == md5($mc_config['user_name'].'_'.$mc_config['user_pass'])) {
-    Header("Location:/mc-admin/post.php");
-  }
+    if ($token == md5($mc_config['user_name'] . '_' . $mc_config['user_pass'])) {
+        Header('Location:post.php');
+    }
 }
 
 if (isset($_POST['login'])) {
-  if ($_POST['user'] == $mc_config['user_name'] 
-  && $_POST['pass'] == $mc_config['user_pass']) {
-    setcookie('mc_token', md5($mc_config['user_name'].'_'.$mc_config['user_pass']));
-    Header("Location:/mc-admin/post.php");
-  }
+    if ($_POST['user'] == $mc_config['user_name']
+        && $_POST['pass'] == $mc_config['user_pass']
+    ) {
+        setcookie('mc_token', md5($mc_config['user_name'] . '_' . $mc_config['user_pass']));
+        Header('Location:post.php');
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -36,17 +39,17 @@ body { background:#f9f9f9; font-size:14px; }
   </style>
 </head>
 <body>
-  <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
-  <div id="login_title">MiniCMS</div>
-  <div id="login_form">
-    <div id="login_form_box">
-      <div class="label">帐号</div>
-      <div class="textbox"><input name="user" type="text" /></div>
-      <div class="label">密码</div>
-      <div class="textbox"><input name="pass" type="password" /></div>
-      <div class="bottom"><input name="login" type="submit" value="登录" class="button" /></div>
+<form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
+    <div id="login_title">MiniCMS</div>
+    <div id="login_form">
+        <div id="login_form_box">
+            <div class="label">帐号</div>
+            <div class="textbox"><input name="user" type="text"/></div>
+            <div class="label">密码</div>
+            <div class="textbox"><input name="pass" type="password"/></div>
+            <div class="bottom"><input name="login" type="submit" value="登录" class="button"/></div>
+        </div>
     </div>
-  </div>
-  </form>
+</form>
 </body>
 </html>

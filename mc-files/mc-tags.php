@@ -54,7 +54,8 @@ function mc_nick_name($print = true) {
 function mc_theme_url($path, $print = true) {
   global $mc_config;
 
-  $url = $mc_config['site_link'].'/mc-files/theme/'.$path;
+  //$url = $mc_config['site_link'].'/mc-files/theme/'.$path;
+  $url = __COMMON_DIR__.'/theme/'.$path;
 
   if ($print) {
     echo $url;
@@ -131,7 +132,7 @@ function mc_goto_old($text) {
   if ($mc_get_type == 'tag') {
     echo '<a href="';
     echo $mc_config['site_link'];
-    echo '/?tag/';
+    echo '?tag/';
     echo $mc_get_name;
     echo '/?page=';
     echo ($mc_page_num + 1);
@@ -141,7 +142,7 @@ function mc_goto_old($text) {
   } else {
     echo '<a href="';
     echo $mc_config['site_link'];
-    echo '/?page=';
+    echo '?page=';
     echo ($mc_page_num + 1);
     echo '">';
     echo $text;
@@ -155,7 +156,7 @@ function mc_goto_new($text) {
   if ($mc_get_type == 'tag') {
     echo '<a href="';
     echo $mc_config['site_link'];
-    echo '/?tag/';
+    echo '?tag/';
     echo $mc_get_name;
     echo '/?page=';
     echo ($mc_page_num - 1);
@@ -165,7 +166,7 @@ function mc_goto_new($text) {
   } else {
     echo '<a href="';
     echo $mc_config['site_link'];
-    echo '/?page=';
+    echo '?page=';
     echo ($mc_page_num - 1);
     echo '">';
     echo $text;
@@ -185,7 +186,7 @@ function mc_date_list($item_begin='<li>', $item_gap='', $item_end='</li>') {
       echo $item_begin;
       echo '<a href="';
       echo $mc_config['site_link'];
-      echo '/?date/';
+      echo '?date/';
       echo $date;
       echo '/">';
       echo $date;
@@ -210,7 +211,7 @@ function mc_tag_list($item_begin='<li>', $item_gap='', $item_end='</li>') {
       echo $item_begin;
       echo '<a href="';
       echo $mc_config['site_link'];
-      echo '/?tag/';
+      echo '?tag/';
       echo urlencode($tag);
       echo '/">';
       echo $tag;
@@ -240,7 +241,7 @@ function mc_next_post() {
     return false;
 
   $mc_post_id = $mc_post_ids[$mc_post_i];
-  
+
   $mc_post = $mc_posts[$mc_post_id];
 
   $mc_post_i += 1;
@@ -285,18 +286,18 @@ function mc_the_tags($item_begin='', $item_gap=', ', $item_end='', $as_link = tr
   global $mc_post, $mc_config;
 
   $tags = $mc_post['tags'];
-  
+
   $count = count($tags);
 
   for ($i = 0; $i < $count; $i ++) {
     $tag = htmlspecialchars($tags[$i]);
-    
+
     echo $item_begin;
 
     if ($as_link) {
       echo '<a href="';
       echo $mc_config['site_link'];
-      echo '/?tag/';
+      echo '?tag/';
       echo urlencode($tag);
       echo '/">';
     }
@@ -320,9 +321,9 @@ function mc_the_content($print = true) {
   if (!isset($mc_data)) {
     global $mc_post_id;
 
-    $data = unserialize(file_get_contents('mc-files/posts/data/'.$mc_post_id.'.dat')); 
+    $data = unserialize(file_get_contents(__COMMON_DIR__.'/posts/data/'.$mc_post_id.'.dat'));
 
-    $html = Markdown($data['content']); 
+    $html = Markdown($data['content']);
   }
   else {
     $html = Markdown($mc_data['content']);
@@ -332,7 +333,7 @@ function mc_the_content($print = true) {
     echo $html;
     return;
   }
-  
+
   return $html;
 }
 
@@ -349,7 +350,7 @@ function mc_the_link() {
 function mc_the_url($print = true) {
   global $mc_post_id, $mc_post, $mc_config;
 
-  $url = $mc_config['site_link'].'/?post/'.$mc_post_id;
+  $url = $mc_config['site_link'].'?post/'.$mc_post_id;
 
   if ($print) {
     echo $url;

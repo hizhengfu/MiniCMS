@@ -78,9 +78,10 @@
   <div id="side">
     <div id="navbar">
       <ul>
-        <li><a href="<?php mc_site_link(); ?>/">首页</a></li>
-        <li><a href="<?php mc_site_link(); ?>/?archive/">存档</a></li>
-        <li><a href="<?php mc_site_link(); ?>/?rss/">订阅</a></li>
+        <li><a href="<?php mc_site_link(); ?>">首页</a></li>
+        <li><a href="<?php mc_site_link(); ?>?archive/">存档</a></li>
+        <li><a href="<?php mc_site_link(); ?>?rss/">订阅</a></li>
+        <li><a href="<?php mc_site_link(); ?>?aboutus/">关于我们</a></li>
       </ul>
     </div>
   </div>

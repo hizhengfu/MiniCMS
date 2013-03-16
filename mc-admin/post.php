@@ -1,8 +1,9 @@
 <?php
-require_once '../mc-files/mc-conf.php';
+require_once '../conf-inc.php';
+require_once __COMMON_PATH__.'/mc-conf.php';
 
-if (!is_dir('../mc-files/posts/data/'))
-  mkdir('../mc-files/posts/data/');
+if (!is_dir(__COMMON_PATH__.'/posts/data/'))
+  mkdir(__COMMON_PATH__.'/posts/data/');
 
 function load_posts() {
   global $state, $index_file, $mc_posts;
@@ -10,20 +11,20 @@ function load_posts() {
   if (isset($_GET['state'])) {
     if ($_GET['state'] == 'draft') {
       $state = 'draft';
-      $index_file = '../mc-files/posts/index/draft.php';
+      $index_file = __COMMON_PATH__.'/posts/index/draft.php';
     }
     else if ($_GET['state'] == 'delete'){
       $state = 'delete';
-      $index_file = '../mc-files/posts/index/delete.php';
+      $index_file = __COMMON_PATH__.'/posts/index/delete.php';
     }
     else {
       $state = 'publish';
-      $index_file = '../mc-files/posts/index/publish.php';
+      $index_file = __COMMON_PATH__.'/posts/index/publish.php';
     }
   }
   else {
     $state = 'publish';
-    $index_file = '../mc-files/posts/index/publish.php';
+    $index_file =__COMMON_PATH__.'/posts/index/publish.php';
   }
 
   require $index_file;
@@ -41,7 +42,7 @@ function delete_post($id) {
   file_put_contents($index_file, "<?php\n\$mc_posts=".var_export($mc_posts, true)."\n?>");
   
   if ($state != 'delete') {
-    $index_file2 = '../mc-files/posts/index/delete.php';
+    $index_file2 = __COMMON_PATH__.'/posts/index/delete.php';
     
     require $index_file2;
   
@@ -49,7 +50,7 @@ function delete_post($id) {
   
     file_put_contents($index_file2, "<?php\n\$mc_posts=".var_export($mc_posts, true)."\n?>");
   } else {
-    unlink('../mc-files/posts/data/'.$id.'.dat');
+    unlink(__COMMON_PATH__.'/posts/data/'.$id.'.dat');
   }
 }
 
@@ -66,7 +67,7 @@ function revert_post($id) {
   
   file_put_contents($index_file, "<?php\n\$mc_posts=".var_export($mc_posts, true)."\n?>");
   
-  $index_file2 = '../mc-files/posts/index/'.$prev_state.'.php';
+  $index_file2 = __COMMON_PATH__.'/posts/index/'.$prev_state.'.php';
     
   require $index_file2;
   
