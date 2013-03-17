@@ -316,7 +316,7 @@ else if ($page_num > $last_page)
                             <a class="link_button"
                                href="?delete=<?php echo $page_id; ?>&state=<?php echo $state; ?>&date=<?php echo $filter_date; ?>">回收</a>
                         <?php } ?>
-                        <a class="link_button" href="/?<?php echo $page_id; ?>/" target="_blank">查看</a>
+                        <a class="link_button" href="../?<?php echo $page_id; ?>/" target="_blank">查看</a>
                     </div>
                 </td>
                 <td><?php

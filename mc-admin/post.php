@@ -318,7 +318,7 @@ function goto_page(e)
           <?php } else { ?>
           <a class="link_button" href="?delete=<?php echo $post_id; ?>&state=<?php echo $state; ?>&date=<?php echo $filter_date;?>&tag=<?php echo $filter_tag; ?>">回收</a>
           <?php } ?>
-          <a class="link_button" href="/?post/<?php echo $post_id; ?>" target="_blank">查看</a>
+          <a class="link_button" href="../?post/<?php echo $post_id; ?>" target="_blank">查看</a>
         </div>
       </td>
       <td><?php 

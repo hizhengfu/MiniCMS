@@ -237,8 +237,8 @@ if (isset($_POST['_IS_POST_BACK_'])) {
             ?>
             评论：
             <select name="can_comment" style="margin-right:16px;">
-                <option value="1" <?php if ($page_can_comment == '1') echo 'selected="selected";'; ?>>允许</option>
-                <option value="0" <?php if ($page_can_comment == '0') echo 'selected="selected";'; ?>>禁用</option>
+                <option value="1" <?php if ($post_can_comment == '1') echo 'selected="selected";'; ?>>允许</option>
+                <option value="0" <?php if ($post_can_comment == '0') echo 'selected="selected";'; ?>>禁用</option>
             </select>
         <?php }?>
         状态：
