@@ -1,4 +1,4 @@
 <?php
-$mc_pages=array (
+$mc_posts=array (
 )
 ?>

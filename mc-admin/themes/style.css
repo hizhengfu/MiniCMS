@@ -4,13 +4,20 @@ body { font-size:14px; background:#f9f9f9; }
 a { text-decoration:none; color:#426DC9; }
 form { padding:0; margin:0; }
 
-select { border:solid 1px #e0e0e0; padding:2px; border-radius:3px 3px 3px 3px; background:#fff; }
+.row{width:900px;}
+.f-right{float: right}
+.f-left{float: left}
 
-.clear { clear:both; height:0; padding:0; margin:0; font-size:0; border:none; }
+.t-c{text-align: center}
+.t-l{text-align: left}
+.t-r{text-align: right}
 
-#menu { width:900px; margin:20px auto; border-radius:0 0 3px 3px; }
+
+#menu { margin:20px auto; border-radius:0 0 3px 3px; }
+#menu a,#menu a:visited{text-decoration:none;}
 #menu_title { margin:0; font-size:24px; float:left; padding:8px 0 0 0; font-weight:normal; }
 #menu_title a { color:#333; text-shadow: 0 1px 0 #FFFFFF;}
+#menu_title [class*="icon-"] {margin-top: 10px;}
 #menu ul, #menu li { list-style:none; margin:0; padding:0; }
 #menu ul { float:right; }
 #menu li { float:left; }
@@ -22,14 +29,22 @@ select { border:solid 1px #e0e0e0; padding:2px; border-radius:3px 3px 3px 3px; b
 #submenu li { float:left; }
 #submenu li a { display:block; padding:6px 18px; background:#f0f0f0; border:solid 1px #e0e0e0; margin:6px 0 6px 6px; text-decoration:none; color:#426DC9; }
 
-#content { width:900px;margin:20px auto; background:#fff; border:solid 1px #e0e0e0; border-radius:3px 3px 3px 3px; }
+#content { margin:20px auto; background:#fff; border:solid 1px #e0e0e0; border-radius:3px 3px 3px 3px; }
 #content_box { padding:20px; }
 
-#footer { color:#888; text-align:center;margin-top:20px; padding:12px 0; width:900px; margin:0 auto; font-size:12px; border-top:solid 1px #e0e0e0; }
-#footer span { float:right; }
+#footer { color:#888; text-align:center;padding:12px 0; margin:0 auto; font-size:12px; }
 
 .link_button { background:#efefef; padding:2px 4px; font-size:12px; margin-right:4px; border-radius:3px 3px 3px 3px; }
 .link_button:hover, .link_button.current { background:#bc0000; color:#fff; }
+
+.table_list_tool .input-append .btn{height: 30px;}
+.table_list_tool .input-append{margin-right: 12px;}
+.table_list_tool .input-append.input-append{margin-right: 2px;}
+
+.table_list_tool .pagination{margin: 0;}
+.table_list_tool .pagination.pagination-bottom{display: inline-block;float: right}
+.table_list_tool .pagination .hasinput{padding: 2px;}
+.table_list_tool .pagination input{margin: 0;padding: 0;height: 22px;width: 40px;}
 
 .table_list table { border:0; width:100%; border:solid 1px #e0e0e0; border-top:0; color:#333; border-radius:3px 3px 3px 3px; font-size:12px; }
 .table_list td { padding:8px; border-top:solid 1px #e0e0e0; vertical-align:top; }
@@ -40,7 +55,6 @@ select { border:solid 1px #e0e0e0; padding:2px; border-radius:3px 3px 3px 3px; b
 .table_list .row_name { font-size:14px; }
 .table_list .row_tool { margin-top:8px; }
 
-.table_list_tool span { margin-right:20px; }
 .table_list_tool { color:#333; }
 .table_list { padding:6px 0; }
 
@@ -57,17 +71,5 @@ div.updated, div.error { border-radius:3px; border-style:solid; border-width:1px
 .admin_page_name { font-size:24px; padding-bottom:16px; color:#333; }
 .admin_page_name a { margin-left:10px; }
 
-.small_form .name { font-size:16px; font-weight:bold; color:#333; }
-.small_form .label { color:#333; padding-bottom:4px; }
-.small_form .field { margin-top:20px; }
-.small_form .textbox { width:95%; border:solid 1px #ccc; padding:4px; border-radius:3px; }
-.small_form .info { color:#666; font-size:12px; padding-top:4px; }
-.small_form .button { padding:6px 20px; }
-
-.small_form2 .label { float:left; width:150px; padding:4px 0 0 0; }
-.small_form2 .textbox { width:300px; float:left; }
-.small_form2 .field_body { width:300px; }
-.small_form2 .info { width:300px; float:left; margin-left:40px; }
-
-.edit_textbox { width:99%;border:solid 1px #ccc; font-size:20px; padding:3px 4px; border-radius:3px; }
-.edit_textarea { height:400px;width:99%;font-size:13px;border:solid 1px #ccc;padding:3px 4px; border-radius:3px; resize:vertical; }
+.edit_textbox {border:solid 1px #ccc; font-size:20px; padding:3px 4px; border-radius:3px; }
+.edit_textarea {height:400px;font-size:13px;border:solid 1px #ccc;padding:3px 4px; border-radius:3px; resize:vertical; }

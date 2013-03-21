@@ -1,14 +1,14 @@
 <?php
-$mc_pages=array (
+$mc_posts=array (
   'aboutus' => 
   array (
-    'file' => '5tyvpc',
-    'path' => 'aboutus',
+    'id' => 'xf32ss',
     'state' => 'publish',
-    'title' => '关于我们',
-    'date' => '2013-03-16',
-    'time' => '01:42:04',
-    'can_comment' => '',
+    'title' => '测试页面1',
+    'date' => '2013-03-21',
+    'time' => '08:47:36',
+    'can_comment' => '1',
+    'path' => 'aboutus',
   ),
 )
 ?>

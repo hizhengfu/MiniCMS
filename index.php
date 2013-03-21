@@ -1,6 +1,6 @@
 <?php
-require_once 'conf-inc.php';
-require_once __COMMON_PATH__ . '/mc-core.php';
+require_once './conf-inc.php';
+require_once __COMMON_PATH__.'/mc-core.php';
 
 $mc_post_per_page = 10;
 
@@ -104,11 +104,11 @@ if ($mc_get_type == 'post') {
 } else if ($mc_get_type == 'page') {
     require __COMMON_PATH__.'/pages/index/publish.php';
 
-    if (array_key_exists($mc_get_name, $mc_pages)) {
+    if (array_key_exists($mc_get_name, $mc_posts)) {
         $mc_post_id = $mc_get_name;
-        $mc_post = $mc_pages[$mc_post_id];
+        $mc_post = $mc_posts[$mc_post_id];
 
-        $mc_data = unserialize(file_get_contents(__COMMON_PATH__.'/pages/data/' . $mc_post['file'] . '.dat'));
+        $mc_data = unserialize(file_get_contents(__COMMON_PATH__.'/pages/data/' . $mc_post['id'] . '.dat'));
     } else {
         mc_404();
     }

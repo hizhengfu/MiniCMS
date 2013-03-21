@@ -1,16 +1,16 @@
 <?php
 ini_set("display_errors", "On"); error_reporting(E_ALL);
 require_once '../conf-inc.php';
-require_once __COMMON_PATH__ . '/mc-conf.php';
+require_once __COMMON_PATH__ . '/functions.php';
 
-if (isset($_COOKIE['mc_token'])) {
-    $token = $_COOKIE['mc_token'];
-
-    if ($token != md5($mc_config['user_name'] . '_' . $mc_config['user_pass'])) {
+if ($token = get_auth()) {
+    if (!check_token($mc_config['user_name'], $mc_config['user_pass'], $token)) {
         Header("Location:index.php");
+        exit();
     }
 } else {
     Header("Location:index.php");
+    exit();
 }
 
 $page_file = basename($_SERVER['PHP_SELF']);
@@ -59,21 +59,23 @@ function post_sort($a, $b)
 <head>
     <meta charset="UTF-8"/>
     <title><?php echo htmlspecialchars($mc_config['site_name']); ?></title>
-    <link style="text/css" rel="stylesheet" href="style.css"/>
+    <link style="text/css" rel="stylesheet" href="themes/bootstrap.css"/>
+    <link style="text/css" rel="stylesheet" href="themes/style.css"/>
 </head>
 <body>
-<div id="menu">
+<div id="menu" class="row">
     <h3 id="menu_title"><a
-            href="<?php echo $mc_config['site_link'] != '' ? $mc_config['site_link'] : '/'; ?>" target="_blank"><?php echo htmlspecialchars($mc_config['site_name']); ?></a>
+            href="<?php echo $mc_config['site_link'] != '' ? $mc_config['site_link'] : '/'; ?>"
+            target="_blank"><i class="icon-home"></i><?php echo htmlspecialchars($mc_config['site_name']); ?></a>
     </h3>
     <ul>
         <li <?php echo $page_file == 'post.php' || $page_file == 'post-edit.php' ? 'class="current"' : ''; ?>><a
                 href="post.php">文章</a></li>
         <li <?php echo $page_file == 'page.php' || $page_file == 'page-edit.php' ? 'class="current"' : ''; ?>><a
                 href="page.php">页面</a></li>
+        <li <?php echo $page_file == 'media.php' ? 'class="current"' : ''; ?>><a href="media.php">文件</a></li>
         <li <?php echo $page_file == 'conf.php' ? 'class="current"' : ''; ?>><a href="conf.php">设置</a></li>
     </ul>
-    <div class="clear"></div>
 </div>
-<div id="content">
+<div id="content" class="row">
     <div id="content_box">
