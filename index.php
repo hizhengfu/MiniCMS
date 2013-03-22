@@ -90,7 +90,7 @@ if ($mc_get_type == 'post') {
     $mc_post_count = count($mc_post_ids);
 
     $tags_array = array();
-    $date_adddrray = array();
+    $date_array = array();
 
     for ($i = 0; $i < $mc_post_count; $i++) {
         $post_id = $mc_post_ids[$i];
